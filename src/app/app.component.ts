@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CustomerService } from './services/customer.service';
+import { Customer } from './models/customer';
 
 @Component({
   selector: 'app-root',
