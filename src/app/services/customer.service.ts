@@ -21,7 +21,6 @@ export class CustomerService {
   }
 
   updateCustomer(data: any): Observable<any> {
-    debugger
     return this.http.put(`${environment.apiUrlCustomer}/${this.url}`, data);
   }
 

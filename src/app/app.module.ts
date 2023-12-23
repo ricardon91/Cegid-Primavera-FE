@@ -24,12 +24,19 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSortModule } from '@angular/material/sort';
 import { CoreService } from './services/core.service';
+import { HomeComponent } from './components/home/home.component';
+import { SalesListComponent } from './components/sales-list/sales-list.component';
+import { SalesAddEditComponent } from './components/sales-add-edit/sales-add-edit.component';
+import { SaleService } from './services/sale.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     CostumerListComponent,
-    CostumerAddEditComponent
+    CostumerAddEditComponent,
+    HomeComponent,
+    SalesListComponent,
+    SalesAddEditComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +59,7 @@ import { CoreService } from './services/core.service';
     MatSnackBarModule,    
     MatProgressSpinnerModule
   ],
-  providers: [CustomerService, CoreService],
+  providers: [CustomerService, CoreService, SaleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

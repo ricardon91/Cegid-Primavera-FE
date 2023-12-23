@@ -43,7 +43,6 @@ export class CostumerListComponent implements OnInit {
     const dialogRef = this.dialog.open(CostumerAddEditComponent);
     dialogRef.afterClosed().subscribe({      
       next: (val) => {
-        debugger
         if (val) {
           this.grid();
         }
@@ -62,7 +61,6 @@ export class CostumerListComponent implements OnInit {
   }
 
   openEditForm(data: any) {
-    debugger
     const dialogRef = this.dialog.open(CostumerAddEditComponent, {
       data,
     });

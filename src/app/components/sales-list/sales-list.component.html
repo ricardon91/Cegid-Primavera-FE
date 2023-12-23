@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
     <span>Cegid-Primavera</span>
     <span class="example-spacer"></span>
-    <button mat-raised-button (click)="openAddEditCustomerForm()">
-        Add Customer
+    <button mat-raised-button (click)="openAddEditSalesForm()">
+        Add Sale
     </button>
 </mat-toolbar>
 
@@ -10,7 +10,7 @@
 
     <mat-form-field>
         <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Ricardo" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. iPhone" #input>
     </mat-form-field>
 
     <div class="table-container">
@@ -20,20 +20,25 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
                 <td mat-cell *matCellDef="let row"> {{row.id}} </td>
             </ng-container>
-            
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-                <td mat-cell *matCellDef="let row"> {{row.name}}</td>
-            </ng-container>            
 
-            <ng-container matColumnDef="country">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
-                <td mat-cell *matCellDef="let row"> {{row.country}}</td>
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+                <td mat-cell *matCellDef="let row"> {{row.description}}</td>
+            </ng-container>
+            
+            <ng-container matColumnDef="unit">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Unit </th>
+                <td mat-cell *matCellDef="let row"> {{row.unit}}</td>
             </ng-container>
 
-            <ng-container matColumnDef="taxId">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tax ID </th>
-                <td mat-cell *matCellDef="let row"> {{row.taxId}}</td>
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+                <td mat-cell *matCellDef="let row"> {{row.price | currency:'EUR'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalPrice">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Price </th>
+                <td mat-cell *matCellDef="let row"> {{row.totalPrice | currency:'EUR'}}</td>
             </ng-container>
 
             <ng-container matColumnDef="action">
@@ -42,7 +47,7 @@
                     <button mat-icon-button color="primary" (click)="openEditForm(row)">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-icon-button color="warn" (click)="deleteCustomer(row.id)">
+                    <button mat-icon-button color="warn" (click)="deleteSale(row.id)">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </td>

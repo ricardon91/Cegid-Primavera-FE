@@ -11,14 +11,7 @@ import { countries } from 'src/app/shared/store/country-data-store';
   styleUrls: ['./costumer-add-edit.component.css']
 })
 export class CostumerAddEditComponent implements OnInit {
-  customerForm: FormGroup;
-  
-  // country: string[] = [
-  //   'Brazil',
-  //   'France',
-  //   'Portugal',
-  //   'United Kingdom'
-  // ]
+  customerForm: FormGroup;  
 
   countries: any = countries;
 
@@ -42,7 +35,6 @@ export class CostumerAddEditComponent implements OnInit {
   onFormSubmit() {
     if (this.customerForm.valid) {
       if (this.data) {
-        debugger
         this.customerForm.value.id = this.data.id;        
         this.customerService
           .updateCustomer(this.customerForm.value)
@@ -52,17 +44,22 @@ export class CostumerAddEditComponent implements OnInit {
               this.dialogRef.close(true);
             },
             error: (err: any) => {
+              if(err.error.includes("TaxId: This is not a valid NIF")){
+                this.coreService.openSnackBar("This is not a valid NIF");
+              }              
               console.error(err);
             },
           });
       } else {
-        debugger
         this.customerService.addCustomer(this.customerForm.value).subscribe({
           next: (val: any) => {
             this.coreService.openSnackBar('Customer added successfully');
             this.dialogRef.close(true);
           },
           error: (err: any) => {
+            if(err.error.includes("TaxId: This is not a valid NIF")){
+              this.coreService.openSnackBar("This is not a valid NIF");
+            }   
             console.error(err);
           },
         });
