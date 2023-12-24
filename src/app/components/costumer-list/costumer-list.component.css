@@ -1,22 +1,26 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .main-body {
-    padding-top: 20px;
-    margin: 0 auto;
-    max-width: 1348px;
-    mat-form-field {
-      width: 100%;
-      background-color: #424242;
-    }
-  }
+  flex: 1 1 auto;
+}
 
-  table {
+.main-body {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1348px;
+
+  mat-form-field {
     width: 100%;
   }
-  
-  .action {
-    display: flex;
-    gap: 5px;
-  }
+}
+
+table {
+  width: 100%;
+}
+
+.action {
+  display: flex;
+  gap: 5px;
+}
+
+.manImg {
+  height: 70px;
+}
